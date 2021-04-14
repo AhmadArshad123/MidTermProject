@@ -20,6 +20,7 @@ public class Rubric {
 //code application logic here
         Frame MainFrame = new Frame();
         MainFrame.setVisible(true);
+        
     }
     
 }

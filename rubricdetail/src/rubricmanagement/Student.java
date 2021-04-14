@@ -5,6 +5,8 @@
  */
 package rubricmanagement;
 
+
+import java.util.List;
 /**
  *
  * @author hp
@@ -15,6 +17,12 @@ public class Student {
     private String section;
     private String session;
     private String phoneNo;
+    
+    
+    
+    
+    
+    
 
     public String getStudentName() {
         return studentName;
