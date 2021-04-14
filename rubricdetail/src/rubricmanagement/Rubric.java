@@ -15,9 +15,11 @@ public class Rubric {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO         MainFrame.setVisible(true);
+       // TODO         
+                
 //code application logic here
         Frame MainFrame = new Frame();
+        MainFrame.setVisible(true);
     }
     
 }

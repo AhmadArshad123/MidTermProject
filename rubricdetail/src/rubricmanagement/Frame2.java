@@ -5,6 +5,8 @@
  */
 package rubricmanagement;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author hp
@@ -38,11 +40,11 @@ public class Frame2 extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        phone = new javax.swing.JTextField();
+        no = new javax.swing.JTextField();
+        name = new javax.swing.JTextField();
+        sess = new javax.swing.JComboBox<>();
+        sec = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
@@ -125,24 +127,18 @@ public class Frame2 extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("DONE");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
+        sess.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        sess.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Session", "FALL", "SPRING" }));
 
-        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
-
-        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Session", "FALL", "SPRING" }));
-
-        jComboBox2.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jComboBox2.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Section", "A", "B", "C" }));
+        sec.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        sec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Section", "A", "B", "C" }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -160,11 +156,11 @@ public class Frame2 extends javax.swing.JFrame {
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(82, 82, 82)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(no, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                            .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                            .addComponent(phone, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                            .addComponent(sess, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(sec, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(412, 412, 412)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -181,23 +177,23 @@ public class Frame2 extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(no, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sec, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sess, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49))
@@ -227,22 +223,15 @@ public class Frame2 extends javax.swing.JFrame {
 
         jButton5.setBackground(new java.awt.Color(255, 255, 255));
         jButton5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(0, 0, 0));
         jButton5.setText("DONE");
 
-        jComboBox10.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox10.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jComboBox10.setForeground(new java.awt.Color(0, 0, 0));
         jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Student Rubric Level" }));
 
-        jComboBox11.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox11.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jComboBox11.setForeground(new java.awt.Color(0, 0, 0));
         jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rubric No" }));
 
-        jComboBox12.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox12.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jComboBox12.setForeground(new java.awt.Color(0, 0, 0));
         jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Assessment No" }));
         jComboBox12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,14 +239,10 @@ public class Frame2 extends javax.swing.JFrame {
             }
         });
 
-        jComboBox13.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox13.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jComboBox13.setForeground(new java.awt.Color(0, 0, 0));
         jComboBox13.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CLO" }));
 
-        jComboBox14.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox14.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jComboBox14.setForeground(new java.awt.Color(0, 0, 0));
         jComboBox14.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PLO" }));
         jComboBox14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -440,26 +425,15 @@ public class Frame2 extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("DONE");
 
-        jTextField6.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTextField7.setBackground(new java.awt.Color(255, 255, 255));
-
-        jComboBox3.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jComboBox3.setForeground(new java.awt.Color(0, 0, 0));
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PLO" }));
 
-        jComboBox4.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jComboBox4.setForeground(new java.awt.Color(0, 0, 0));
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CLO" }));
 
-        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(20);
-        jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -557,24 +531,15 @@ public class Frame2 extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("DONE");
 
-        jTextField8.setBackground(new java.awt.Color(255, 255, 255));
-
-        jComboBox5.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jComboBox5.setForeground(new java.awt.Color(0, 0, 0));
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Component Marks" }));
 
-        jComboBox6.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jComboBox6.setForeground(new java.awt.Color(0, 0, 0));
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rubric No" }));
 
-        jComboBox7.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jComboBox7.setForeground(new java.awt.Color(0, 0, 0));
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Assessment No" }));
         jComboBox7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -582,14 +547,10 @@ public class Frame2 extends javax.swing.JFrame {
             }
         });
 
-        jComboBox8.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jComboBox8.setForeground(new java.awt.Color(0, 0, 0));
         jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CLO" }));
 
-        jComboBox9.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jComboBox9.setForeground(new java.awt.Color(0, 0, 0));
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PLO" }));
         jComboBox9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -728,7 +689,76 @@ public class Frame2 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //name validator
+    static boolean validateStudentName(String name){
+    boolean flag=true;
+    int len=name.length();
+    char[] arr=new char[len];
+    arr=name.toCharArray();
+    for(int i=0 ; i<len ; i++)
+    {
+      if(!(arr[i]>='A'&& arr[i]<='Z' || arr[i]>='a'&& arr[i]<='z' || arr[i]==' '))
+      {
+        flag=false;
+      }
+    }
+    return flag;
+  
+  }
+    
+    //registration no validator
+     static boolean validateRegistrationNumber(String regNo)
+  {
+    boolean flag=true;
+    int len=regNo.length();
+    char[] arr=new char[len];
+    arr=regNo.toCharArray();
+    if(len!=11)
+    {
+      flag=false;     
+    }
+    if(flag==true)
+    {
+      for(int i=0 ; i<4 ; i++)
+      {
+        if(!(arr[i]>='0'&& arr[i]<='9'))
+        {
+          flag=false;
+        }
+      }
+      if(arr[4]!='-' && arr[7]!='-')
+      {
+        flag=false;
+      }
+      for(int i=5 ; i<7 ; i++)
+      {
+        if(!(arr[i]>='A'&& arr[i]<='Z'))
+        {
+          flag=false;
+        }
+      }
+      for(int i=8 ; i<11 ; i++)
+      {
+        if(!(arr[i]>='0'&& arr[i]<='9'))
+        {
+          flag=false;
+        }
+      }
+    }
+     return flag;
+  }
+     
+     static boolean isValidatePhoneNo(String Number)
+     {
+         boolean flag = true;
+         int len = Number.length();
+         if (len!= 11)
+         {
+             flag= false;
+         }
+         return flag;
+     }
     private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox7ActionPerformed
@@ -744,6 +774,44 @@ public class Frame2 extends javax.swing.JFrame {
     private void jComboBox14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox14ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox14ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+     // TODO add your handling code here:
+     String Name = name.getText();
+     String regno = no.getText();
+     String Phone = phone.getText();
+     String section = sec.getActionCommand();
+     String session = sess.getActionCommand();
+     Student obj = new Student();
+     
+     
+    if(isValidatePhoneNo(Phone) && validateRegistrationNumber(regno)&& validateStudentName(Name))
+    {
+        
+        obj.setStudentName(Name);
+        obj.getStudentName();
+        obj.setRegNo(regno);
+        obj.getRegNo();
+        obj.setPhoneNo(Phone);
+        obj.getPhoneNo();
+        obj.setSection(section);
+        obj.getSection();
+        obj.setSession(session);
+        obj.getStudentName();
+        JOptionPane.showMessageDialog(null,Name + sec + " Has been entered to the system successfully");
+        name.setText("Enter Name");
+        no.setText("Enter rigistration Numer");
+        
+        
+    }
+    else
+    {
+        JOptionPane.showMessageDialog(null, "You have entered wrong credentials enter again");
+    }
+            
+     
+     
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -785,13 +853,11 @@ public class Frame2 extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox11;
     private javax.swing.JComboBox<String> jComboBox12;
     private javax.swing.JComboBox<String> jComboBox13;
     private javax.swing.JComboBox<String> jComboBox14;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
@@ -834,11 +900,13 @@ public class Frame2 extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField name;
+    private javax.swing.JTextField no;
+    private javax.swing.JTextField phone;
+    private javax.swing.JComboBox<String> sec;
+    private javax.swing.JComboBox<String> sess;
     // End of variables declaration//GEN-END:variables
 }
