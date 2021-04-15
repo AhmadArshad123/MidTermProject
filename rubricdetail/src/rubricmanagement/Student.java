@@ -18,12 +18,6 @@ public class Student {
     private String session;
     private String phoneNo;
     
-    
-    
-    
-    
-    
-
     public String getStudentName() {
         return studentName;
     }

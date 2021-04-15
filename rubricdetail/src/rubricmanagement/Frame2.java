@@ -15,10 +15,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Frame2 extends javax.swing.JFrame {
        Student obj = new Student();
-       ManagingStudent m = ManagingStudent.getIsntance(); 
+       CLO cobj= new CLO();
+       Manager m = Manager.getIsntance(); 
        
        String maincolumn[] = new String[] {"Name","Reg No","Section","Session","Phone Number"};
        DefaultTableModel stdTable;
+       
+       String table[]=new String[]{"Course Title","Course Code","CLO no.", "CLO Discription"};
+       DefaultTableModel cloTable;
     /**
      * Creates new form Frame2
      */
@@ -28,6 +32,11 @@ public class Frame2 extends javax.swing.JFrame {
         stdTable=new DefaultTableModel(maincolumn,0);
         jTable1.setModel(stdTable);
         this.setLocationRelativeTo(null);
+        
+        cloTable= new DefaultTableModel(table,0);
+        jTable3.setModel(cloTable);
+        this.setLocationRelativeTo(null);
+        
        //int row, Column;
     }
 
@@ -57,6 +66,7 @@ public class Frame2 extends javax.swing.JFrame {
         sec = new javax.swing.JComboBox<>();
         jPanel8 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
@@ -76,19 +86,26 @@ public class Frame2 extends javax.swing.JFrame {
         jComboBox13 = new javax.swing.JComboBox<>();
         jComboBox14 = new javax.swing.JComboBox<>();
         jPanel15 = new javax.swing.JPanel();
-        jTabbedPane4 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jPanel6 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         clodiscription = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         clono = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        ccode = new javax.swing.JComboBox<>();
+        ctitle = new javax.swing.JComboBox<>();
+        jButton8 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jPanel16 = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
@@ -157,21 +174,27 @@ public class Frame2 extends javax.swing.JFrame {
         jLabel1.setText("STUDENT");
         jLabel1.setToolTipText("");
 
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rubricmanagement/icons8_student_male_60px_3.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(308, 308, 308)
+                .addGap(198, 198, 198)
+                .addComponent(jLabel17)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -241,9 +264,9 @@ public class Frame2 extends javax.swing.JFrame {
                             .addComponent(no, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(sec, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sess, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 177, Short.MAX_VALUE))
-            .addComponent(jScrollPane2)
+                            .addComponent(sess, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -416,7 +439,7 @@ public class Frame2 extends javax.swing.JFrame {
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 601, Short.MAX_VALUE)
+            .addGap(0, 612, Short.MAX_VALUE)
             .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel12Layout.createSequentialGroup()
                     .addGap(0, 12, Short.MAX_VALUE)
@@ -461,7 +484,6 @@ public class Frame2 extends javax.swing.JFrame {
         );
 
         jTabbedPane2.addTab("RESULT", jPanel15);
-        jTabbedPane2.addTab("tab4", jTabbedPane4);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -489,19 +511,14 @@ public class Frame2 extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(0, 0, 102));
 
-        jPanel9.setBackground(new java.awt.Color(0, 0, 102));
+        jPanel9.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel9.setPreferredSize(new java.awt.Dimension(662, 736));
 
-        jLabel7.setFont(new java.awt.Font("Ebrima", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("ADDING CLO'S DETAILS");
-
-        jLabel11.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel11.setText("CLO'S DESCRIPTION:");
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jButton3.setText("DONE");
+        jButton3.setText("ADD");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -512,67 +529,152 @@ public class Frame2 extends javax.swing.JFrame {
         clodiscription.setRows(5);
         jScrollPane1.setViewportView(clodiscription);
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("CLO number");
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setText("CLO NUMBER :");
 
-        clono.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CLO", "1", "2", "3" }));
+        clono.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        clono.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setText("COURSE CODE");
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel9.setText("COURSE TITLE :");
+
+        ccode.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        ccode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Programming Fundamental" }));
+
+        ctitle.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        ctitle.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "CS142L" }));
+
+        jButton8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jButton8.setText("EDIT");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(jTable3);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(363, 363, 363))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(274, 274, 274))
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74)
+                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(239, 239, 239)
+                .addGap(124, 124, 124)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(clono, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(210, Short.MAX_VALUE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(75, 75, 75)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ctitle, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ccode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(clono, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(167, Short.MAX_VALUE))
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(clono, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(73, 73, 73)
+                .addGap(60, 60, 60)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(124, 124, 124)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                    .addComponent(jLabel7)
+                    .addComponent(ccode, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(ctitle, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(clono, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel16.setBackground(new java.awt.Color(153, 153, 153));
+
+        jTextField1.setBackground(new java.awt.Color(153, 153, 153));
+        jTextField1.setFont(new java.awt.Font("Britannic Bold", 0, 36)); // NOI18N
+        jTextField1.setText("Manage CLO'S");
+        jTextField1.setBorder(null);
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGap(207, 207, 207)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(220, Short.MAX_VALUE))
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(69, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(2, 2, 2)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -727,7 +829,7 @@ public class Frame2 extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane3, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jTabbedPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -747,11 +849,15 @@ public class Frame2 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 709, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -833,135 +939,69 @@ public class Frame2 extends javax.swing.JFrame {
     private void jComboBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox9ActionPerformed
-
-    private void jComboBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox12ActionPerformed
+    
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox12ActionPerformed
+        String courseCode=ccode.getSelectedItem().toString();
+        String courseTitle=ctitle.getSelectedItem().toString();
+        String Number = clono.getSelectedItem().toString();
+        String Discrip = clodiscription.getText();
+        //CLO c = new CLO();
+        cobj.setCLOnumber(Number);
+        cobj.getCLOnumber();
+        cobj.setCLODiscription(Discrip);
+        cobj.getCLODiscription();
+        cobj.setCourseCode(courseCode);
+        cobj.getCourseCode();
+        cobj.setCourseTitle(courseTitle);
+        cobj.getCourseTitle();
+        
+        
+        ccode.setSelectedItem("Select");
+        ctitle.setSelectedItem("Select");
+        clono.setSelectedItem("1");
+        clodiscription.setText("");
+         
+        boolean checkCLO=true;
+        for(int i =0 ; i<m.CLOList.size(); i++)
+        {
+            if(Number.equals(m.CLOList.get(i).getCLOnumber()))
+            {
+                checkCLO=false;
+                JOptionPane.showMessageDialog(null, "The CLO "+ Number+" is already added  ");
+            }
+        }
+        
+         if(checkCLO==true)
+         {
+        Manager.getIsntance().addCLO(cobj);
+        JOptionPane.showMessageDialog(null, "The CLO has been added sucessfully ");
+        
+         cloTable.setRowCount(0);
+
+            cobj=new CLO();
+
+            for(int i =0 ; i<m.CLOList.size(); i++)
+            {
+                Object[] tab = {m.CLOList.get(i).getCourseCode(),m.CLOList.get(i).getCourseTitle(),m.CLOList.get(i).getCLOnumber(),m.CLOList.get(i).getCLODiscription()};
+
+                cloTable.addRow(tab);
+
+            }
+         }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jComboBox14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox14ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox14ActionPerformed
-    
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-     // TODO add your handling code here:
-     String Name = name.getText();
-     String regno = no.getText();
-     String Phone = phone.getText();
-     String section = sec.getSelectedItem().toString();
-     String session = sess.getSelectedItem().toString();
-     
-     //Driver obj2= new ManagingStudent();
-     
-     
-    if(isValidatePhoneNo(Phone) && validateRegistrationNumber(regno)&& validateStudentName(Name))
-    {
-        
-        obj.setStudentName(Name);
-        obj.getStudentName();
-        obj.setRegNo(regno);
-        obj.getRegNo();
-        obj.setPhoneNo(Phone);
-        obj.getPhoneNo();
-        obj.setSection(section);
-        obj.getSection();
-        obj.setSession(session);
-        obj.getStudentName();
-        JOptionPane.showMessageDialog(null,Name +  " Has been registered to the scrton"+ section +" successfully");
-        name.setText("");
-        no.setText("");
-        phone.setText("");
-        sec.setSelectedItem("Section");
-        sess.setSelectedItem("Session");
-        ManagingStudent.getIsntance().addStudent(obj);
-        //m.addStudent(obj);
-        stdTable.setRowCount(0);
-        
-        obj=new Student();
-                
-        for(int i =0 ; i<m.stdList.size(); i++)
-        {
-            Object[] objs = {m.stdList.get(i).getStudentName(),m.stdList.get(i).getRegNo(),m.stdList.get(i).getSection(),m.stdList.get(i).getSession(),m.stdList.get(i).getPhoneNo()};
-                
-            stdTable.addRow(objs);
-            
-        }
-        
-        
-        
-    }
-    else
-    {
-        JOptionPane.showMessageDialog(null, "You have entered wrong credentials enter again");
-    }
-            
-     
-     
-    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jComboBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox12ActionPerformed
         // TODO add your handling code here:
-        String Number = clono.getSelectedItem().toString();
-        String Discrip = clodiscription.getText();
-        CLO c = new CLO();
-        c.setCLOnumber(Number);
-        c.getCLOnumber();
-        c.setCLODiscription(Discrip);
-        c.getCLODiscription();
-        ManagingCLO.getIsntances().addCLO(c);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        String Name = name.getText();
-     String regno = no.getText();
-     String Phone = phone.getText();
-     String section = sec.getSelectedItem().toString();
-     String session = sess.getSelectedItem().toString();
-     
-     //Driver obj2= new ManagingStudent();
-     
-     
-    if(isValidatePhoneNo(Phone) && validateRegistrationNumber(regno)&& validateStudentName(Name))
-    {
-        
-        obj.setStudentName(Name);
-        obj.getStudentName();
-        obj.setRegNo(regno);
-        obj.getRegNo();
-        obj.setPhoneNo(Phone);
-        obj.getPhoneNo();
-        obj.setSection(section);
-        obj.getSection();
-        obj.setSession(session);
-        obj.getStudentName();
-        JOptionPane.showMessageDialog(null,Name +  " Has been updated successfully");
-        name.setText("");
-        no.setText("");
-        phone.setText("");
-        sec.setSelectedItem("Section");
-        sess.setSelectedItem("Session");
-        ManagingStudent.getIsntance().editStudent(obj, row);
-        //m.addStudent(obj);
-        stdTable.setRowCount(0);
-        
-        obj=new Student();
-                
-        for(int i =0 ; i<m.stdList.size(); i++)
-        {
-            Object[] objs = {m.stdList.get(i).getStudentName(),m.stdList.get(i).getRegNo(),m.stdList.get(i).getSection(),m.stdList.get(i).getSession(),m.stdList.get(i).getPhoneNo()};
-                
-            stdTable.addRow(objs);
-            
-        }
-        
-        
-        
-    }
-    else
-    {
-        JOptionPane.showMessageDialog(null, "You have entered wrong credentials enter again");
-    }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jComboBox12ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
@@ -978,15 +1018,13 @@ public class Frame2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         m.deleteStudent(row);
         stdTable.setRowCount(0);
-        
-        
-                
+
         for(int i =0 ; i<m.stdList.size(); i++)
         {
             Object[] objs = {m.stdList.get(i).getStudentName(),m.stdList.get(i).getRegNo(),m.stdList.get(i).getSection(),m.stdList.get(i).getSession(),m.stdList.get(i).getPhoneNo()};
-                
+
             stdTable.addRow(objs);
-            
+
         }
         name.setText("");
         no.setText("");
@@ -994,6 +1032,168 @@ public class Frame2 extends javax.swing.JFrame {
         sec.setSelectedItem("Section");
         sess.setSelectedItem("Session");
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String Name = name.getText();
+        String regno = no.getText();
+        String Phone = phone.getText();
+        String section = sec.getSelectedItem().toString();
+        String session = sess.getSelectedItem().toString();
+
+        //Driver obj2= new Manager();
+        
+        
+        
+        if(isValidatePhoneNo(Phone) && validateRegistrationNumber(regno)&& validateStudentName(Name))
+        {
+
+            obj.setStudentName(Name);
+            obj.getStudentName();
+            obj.setRegNo(regno);
+            obj.getRegNo();
+            obj.setPhoneNo(Phone);
+            obj.getPhoneNo();
+            obj.setSection(section);
+            obj.getSection();
+            obj.setSession(session);
+            obj.getStudentName();
+            JOptionPane.showMessageDialog(null,Name +  " Has been updated successfully");
+            name.setText("");
+            no.setText("");
+            phone.setText("");
+            sec.setSelectedItem("Section");
+            sess.setSelectedItem("Session");
+            Manager.getIsntance().editStudent(obj, row);
+            //m.addStudent(obj);
+            stdTable.setRowCount(0);
+
+            obj=new Student();
+
+            for(int i =0 ; i<m.stdList.size(); i++)
+            {
+                Object[] objs = {m.stdList.get(i).getStudentName(),m.stdList.get(i).getRegNo(),m.stdList.get(i).getSection(),m.stdList.get(i).getSession(),m.stdList.get(i).getPhoneNo()};
+
+                stdTable.addRow(objs);
+
+            }
+
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "You have entered wrong credentials enter again");
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        String Name = name.getText();
+        String regno = no.getText();
+        String Phone = phone.getText();
+        String section = sec.getSelectedItem().toString();
+        String session = sess.getSelectedItem().toString();
+        
+        boolean checklist =true;
+        for(int i=0; i<m.stdList.size(); i++)
+        {
+        if (regno.equals(m.stdList.get(i).getRegNo())) {
+            checklist=false;
+            JOptionPane.showMessageDialog(null, "The student with registration no "+ regno + " already exist" );
+        }
+        }
+        //Driver obj2= new Manager();
+        if(checklist==true){
+        if(isValidatePhoneNo(Phone) && validateRegistrationNumber(regno)&& validateStudentName(Name) )
+        {
+
+            obj.setStudentName(Name);
+            obj.getStudentName();
+            obj.setRegNo(regno);
+            obj.getRegNo();
+            obj.setPhoneNo(Phone);
+            obj.getPhoneNo();
+            obj.setSection(section);
+            obj.getSection();
+            obj.setSession(session);
+            obj.getStudentName();
+            JOptionPane.showMessageDialog(null,Name +  " Has been registered to the scrton"+ section +" successfully");
+            name.setText("");
+            no.setText("");
+            phone.setText("");
+            sec.setSelectedItem("Section");
+            sess.setSelectedItem("Session");
+            Manager.getIsntance().addStudent(obj);
+            //m.addStudent(obj);
+            stdTable.setRowCount(0);
+
+            obj=new Student();
+
+            for(int i =0 ; i<m.stdList.size(); i++)
+            {
+                Object[] objs = {m.stdList.get(i).getStudentName(),m.stdList.get(i).getRegNo(),m.stdList.get(i).getSection(),m.stdList.get(i).getSession(),m.stdList.get(i).getPhoneNo()};
+
+                stdTable.addRow(objs);
+
+            }
+
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "You have entered wrong credentials enter again");
+        }
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        // TODO add your handling code here:
+        row= jTable3.getSelectedRow();
+        Column=jTable3.getSelectedColumn();
+   
+        ccode.setSelectedItem(cloTable.getValueAt(row, 0).toString());
+        ctitle.setSelectedItem(cloTable.getValueAt(row, 1).toString());
+        clono.setSelectedItem(cloTable.getValueAt(row, 2).toString());
+        
+        clodiscription.setText(cloTable.getValueAt(row, 3).toString());
+    }//GEN-LAST:event_jTable3MouseClicked
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+         String courseCode=ccode.getSelectedItem().toString();
+        String courseTitle=ctitle.getSelectedItem().toString();
+        String Number = clono.getSelectedItem().toString();
+        String Discrip = clodiscription.getText();
+        //CLO c = new CLO();
+        cobj.setCLOnumber(Number);
+        cobj.getCLOnumber();
+        cobj.setCLODiscription(Discrip);
+        cobj.getCLODiscription();
+        cobj.setCourseCode(courseCode);
+        cobj.getCourseCode();
+        cobj.setCourseTitle(courseTitle);
+        cobj.getCourseTitle();
+        JOptionPane.showMessageDialog(null, "The CLO has been added sucessfully ");
+        
+        ccode.setSelectedItem("");
+        ctitle.setSelectedItem("");
+        clono.setSelectedItem("1");
+        clodiscription.setText("");
+        
+                
+        Manager.getIsntance().editCLO(cobj, row);
+        
+         cloTable.setRowCount(0);
+
+            cobj=new CLO();
+
+            for(int i =0 ; i<m.CLOList.size(); i++)
+            {
+                Object[] tab = {m.CLOList.get(i).getCourseCode(),m.CLOList.get(i).getCourseTitle(),m.CLOList.get(i).getCLOnumber(),m.CLOList.get(i).getCLODiscription()};
+
+                cloTable.addRow(tab);
+
+            }
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1031,8 +1231,10 @@ public class Frame2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ccode;
     private javax.swing.JTextArea clodiscription;
     private javax.swing.JComboBox<String> clono;
+    private javax.swing.JComboBox<String> ctitle;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -1040,6 +1242,7 @@ public class Frame2 extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox11;
     private javax.swing.JComboBox<String> jComboBox12;
@@ -1058,6 +1261,7 @@ public class Frame2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1065,6 +1269,7 @@ public class Frame2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -1072,6 +1277,7 @@ public class Frame2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1082,11 +1288,13 @@ public class Frame2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField name;
     private javax.swing.JTextField no;

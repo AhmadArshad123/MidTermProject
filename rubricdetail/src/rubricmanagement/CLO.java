@@ -14,6 +14,8 @@ import java.util.List;
  */
 public class CLO {
   
+    private String courseCode;
+    private String courseTitle;
     private String CLOnumber;
     private String CLODiscription;
 
@@ -45,6 +47,34 @@ public class CLO {
      */
     public void setCLOnumber(String CLOnumber) {
         this.CLOnumber = CLOnumber;
+    }
+
+    /**
+     * @return the courseCode
+     */
+    public String getCourseCode() {
+        return courseCode;
+    }
+
+    /**
+     * @param courseCode the courseCode to set
+     */
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
+    }
+
+    /**
+     * @return the courseTitle
+     */
+    public String getCourseTitle() {
+        return courseTitle;
+    }
+
+    /**
+     * @param courseTitle the courseTitle to set
+     */
+    public void setCourseTitle(String courseTitle) {
+        this.courseTitle = courseTitle;
     }
 
     

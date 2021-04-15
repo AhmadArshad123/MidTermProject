@@ -15,19 +15,23 @@ import javax.swing.JOptionPane;
  *
  * @author hp
  */
-public class ManagingStudent  {
+public class Manager  {
     //public List <Student> stdList = new ArrayList<Student>();
-    private static ManagingStudent instance ;
-    public List<Student> stdList;
+    private static Manager instance ;
 
-     ManagingStudent(){
+    
+    public List<Student> stdList;
+    public List<CLO> CLOList;
+
+     Manager(){
         stdList= new ArrayList<Student>();
+        CLOList= new ArrayList<CLO>();
     }
      
-     public static ManagingStudent getIsntance(){
+     public static Manager getIsntance(){
         if(instance==null)
         {
-            instance = new ManagingStudent();
+            instance = new Manager();
         }
         
         return instance;
@@ -48,6 +52,27 @@ public class ManagingStudent  {
         stdList.set(c,a);
     }
     
+    public void addCLO(CLO a)
+    {
+        CLOList.add(a);
+    }
+    public void editCLO(CLO a,int c)
+    {
+        CLOList.set(c,a);
+    }
+    public void showCLO(){
+     
+        
+        
+        
+          for(int i = 0 ; i< CLOList.size() ; i++ )
+          {
+            JOptionPane.showMessageDialog(null,  CLOList.get(i).getCLOnumber()+ CLOList.get(i).getCLODiscription()) ; 
+          }
+          
+          
+          
+    }
     public void showStudent(){
      
         
