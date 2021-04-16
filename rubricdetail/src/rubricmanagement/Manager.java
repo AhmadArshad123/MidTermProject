@@ -22,10 +22,12 @@ public class Manager  {
     
     public List<Student> stdList;
     public List<CLO> CLOList;
+    public List<Rubrics> rubricList;
 
      Manager(){
         stdList= new ArrayList<Student>();
         CLOList= new ArrayList<CLO>();
+        rubricList= new ArrayList<Rubrics>();
     }
      
      public static Manager getIsntance(){
@@ -59,7 +61,37 @@ public class Manager  {
     public void editCLO(CLO a,int c)
     {
         CLOList.set(c,a);
+    }  
+    
+    
+    public void addRubric(Rubrics a)
+    {
+        rubricList.add(a);
+    } 
+     public void editRubric(Rubrics r,int c)
+    {
+        rubricList.set(c,r);
     }
+     
+      public void showRubrics(){
+     //String format =  String.format("%-110s %-30s %-100s %-100s %-100s"  , "RUBRIC DISCRIPTION", "Component marks", "Level 1", "Level 2", "Level 3"+"\n");
+       // String output="";
+         // 
+          for(int i=0; i<rubricList.size();i++)
+          {
+              for(int j=0 ; j<4 ; j++)
+              {
+            JOptionPane.showMessageDialog(null,  rubricList.get(i).Rubric.get(j).getRubricDiscription()+" "+rubricList.get(i).Rubric.get(j).getRubricweightage() +" "+ rubricList.get(i).Rubric.get(j).getRubric1Discription()+" "+ rubricList.get(i).Rubric.get(j).getRubric2Discription()+" "+ rubricList.get(i).Rubric.get(j).getRubric3Discription() ); 
+              }
+          }
+          //JOptionPane.showMessageDialog(null,format+"\n"+output);
+          
+         // JOptionPane.showMessageDialog(null,rubricList.get(0).Rubric.get(0).getRubricDiscription() + " "+rubricList.get(0).Rubric.get(0).getRubric1Discription()+" "+rubricList.get(0).Rubric.get(0).getRubric2Discription() +" "+rubricList.get(0).Rubric.get(0).getRubric3Discription()  );
+          //JOptionPane.showMessageDialog(null,rubricList.get(0).Rubric.get(1).getRubricDiscription() + " "+rubricList.get(0).Rubric.get(1).getRubric1Discription()+" "+rubricList.get(0).Rubric.get(1).getRubric2Discription() +" "+rubricList.get(0).Rubric.get(1).getRubric3Discription()  );
+          //JOptionPane.showMessageDialog(null,rubricList.get(0).Rubric.get(2).getRubricDiscription() + " "+rubricList.get(0).Rubric.get(2).getRubric1Discription()+" "+rubricList.get(0).Rubric.get(2).getRubric2Discription() +" "+rubricList.get(0).Rubric.get(2).getRubric3Discription()  );
+          //JOptionPane.showMessageDialog(null,rubricList.get(0).Rubric.get(3).getRubricDiscription() + " "+rubricList.get(0).Rubric.get(3).getRubric1Discription()+" "+rubricList.get(0).Rubric.get(3).getRubric2Discription() +" "+rubricList.get(0).Rubric.get(3).getRubric3Discription()  );
+    }
+    
     public void showCLO(){
      
         
