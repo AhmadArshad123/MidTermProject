@@ -18,8 +18,11 @@ public class Rubric {
        // TODO         
                 
 //code application logic here
+        Manager.getIsntance().loadStudent();
+        Manager.getIsntance().loadCLOs();
         Frame MainFrame = new Frame();
         MainFrame.setVisible(true);
+        
         
     }
     
