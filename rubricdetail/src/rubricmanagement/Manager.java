@@ -148,7 +148,7 @@ public class Manager  {
         {
             for(int j = 0; j<4 ; j++)
             {
-                 data.put("row1", new Object[] {rubricList.get(i).getAssesmentno(),rubricList.get(i).getCLO(), rubricList.get(i).Rubric.get(j).getRubricDiscription(), rubricList.get(i).Rubric.get(j).getRubricweightage(),rubricList.get(i).Rubric.get(j).getRubric1Discription(),rubricList.get(i).Rubric.get(j).getRubric2Discription(),rubricList.get(i).Rubric.get(j).getRubric3Discription()});
+                 data.put("row1", new Object[] {rubricList.get(i).Rubric.get(j).getRubricNumber(),rubricList.get(i).getAssesmentno(),rubricList.get(i).getCLO(), rubricList.get(i).Rubric.get(j).getRubricDiscription(), rubricList.get(i).Rubric.get(j).getRubricweightage(),rubricList.get(i).Rubric.get(j).getRubric1Discription(),rubricList.get(i).Rubric.get(j).getRubric2Discription(),rubricList.get(i).Rubric.get(j).getRubric3Discription()});
                  row1++;
             }
         }
@@ -173,10 +173,10 @@ public class Manager  {
         try
         {
             //Write the workbook in file system
-            FileOutputStream out = new FileOutputStream(new File("howtodoinjava_demo.xlsx"));
+            FileOutputStream out = new FileOutputStream(new File("Rubrics.xlsx"));
             workbook.write(out);
             out.close();
-            System.out.println("howtodoinjava_demo.xlsx written successfully on disk.");
+            
         } 
         catch (Exception e) 
         {

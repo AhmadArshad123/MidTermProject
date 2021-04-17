@@ -22,6 +22,7 @@ public class Frame2 extends javax.swing.JFrame {
        Student obj = new Student();
        CLO cobj= new CLO();
        Rubrics robj= new Rubrics();
+       Evaluation eobj= new Evaluation();
        Manager m = Manager.getIsntance(); 
        
        
@@ -30,6 +31,9 @@ public class Frame2 extends javax.swing.JFrame {
        
        String table[]=new String[]{"Course Title","Course Code","CLO no.", "CLO Discription"};
        DefaultTableModel cloTable;
+       
+       String table1[]=new String[]{"Assesment Number","CLO No","Registration Number","Rubric no","Rubtric","Component Marks","Obtain Marks"};
+       DefaultTableModel resultTable;
     /**
      * Creates new form Frame2
      */
@@ -40,9 +44,15 @@ public class Frame2 extends javax.swing.JFrame {
         jTable1.setModel(stdTable);
         this.setLocationRelativeTo(null);
         
+        
         cloTable= new DefaultTableModel(table,0);
         jTable3.setModel(cloTable);
         this.setLocationRelativeTo(null);
+        
+        resultTable=new DefaultTableModel(table1,0);
+        jTable4.setModel(resultTable);
+        this.setLocationRelativeTo(null);
+        
         
        //int row, Column;
     }
@@ -63,6 +73,7 @@ public class Frame2 extends javax.swing.JFrame {
         jTextField12 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
         jComboBox6 = new javax.swing.JComboBox<>();
+        jPanel13 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
@@ -107,6 +118,10 @@ public class Frame2 extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jPanel15 = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
+        jButton14 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
@@ -186,6 +201,17 @@ public class Frame2 extends javax.swing.JFrame {
         jPasswordField1.setText("jPasswordField1");
 
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -554,15 +580,63 @@ public class Frame2 extends javax.swing.JFrame {
 
         jPanel15.setBackground(new java.awt.Color(204, 204, 255));
 
+        jPanel14.setBackground(new java.awt.Color(204, 204, 255));
+
+        jButton14.setText("Result CLO wise");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(jTable4);
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 664, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 31, Short.MAX_VALUE))
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jButton14)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jButton14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71))
+        );
+
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("RESULT", jPanel15);
@@ -1626,8 +1700,9 @@ public class Frame2 extends javax.swing.JFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
-       // m.showRubrics();
+       m.showRubrics();
        m.saveRubrics();
+       JOptionPane.showMessageDialog(null, "OK");
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -1682,7 +1757,7 @@ public class Frame2 extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        Evaluation eobj= new Evaluation();
+        eobj= new Evaluation();
         String Asssno= AssNo.getSelectedItem().toString();
         String CLONO=CloNo.getSelectedItem().toString();
         String regno=Rno.getText();
@@ -1704,21 +1779,22 @@ public class Frame2 extends javax.swing.JFrame {
             if(Asssno.equals(m.rubricList.get(i).getAssesmentno()) && CLONO.equals(m.rubricList.get(i).getCLO()))
             {
                 check=true;
-                double componenetMarks1= Integer.parseInt(m.rubricList.get(i).Rubric.get(0).getRubricweightage());
-                double componenetMarks2= Integer.parseInt(m.rubricList.get(i).Rubric.get(1).getRubricweightage());
-                double componenetMarks3= Integer.parseInt(m.rubricList.get(i).Rubric.get(2).getRubricweightage());
-                double componenetMarks4= Integer.parseInt(m.rubricList.get(i).Rubric.get(3).getRubricweightage());
+                double componenetMarks1= Double.parseDouble(m.rubricList.get(i).Rubric.get(0).getRubricweightage());
+                double componenetMarks2= Double.parseDouble(m.rubricList.get(i).Rubric.get(1).getRubricweightage());
+                double componenetMarks3= Double.parseDouble(m.rubricList.get(i).Rubric.get(2).getRubricweightage());
+                double componenetMarks4= Double.parseDouble(m.rubricList.get(i).Rubric.get(3).getRubricweightage());
                 
                 marks1=(Lvl1/3)*componenetMarks1;
                 marks2=(Lvl2/3)*componenetMarks2;
                 marks3=(Lvl3/3)*componenetMarks3;
                 marks4=(Lvl4/3)*componenetMarks4;
+                
                 Double MARKS1=  BigDecimal.valueOf(marks1).setScale(1, RoundingMode.HALF_UP).doubleValue();
                 Double MARKS2=  BigDecimal.valueOf(marks2).setScale(1, RoundingMode.HALF_UP).doubleValue();
                 Double MARKS3=  BigDecimal.valueOf(marks3).setScale(1, RoundingMode.HALF_UP).doubleValue();
                 Double MARKS4=  BigDecimal.valueOf(marks4).setScale(1, RoundingMode.HALF_UP).doubleValue();
                 
-                JOptionPane.showMessageDialog(null, MARKS1 +" "+MARKS2 +" "+MARKS3 +" "+MARKS4);
+                //JOptionPane.showMessageDialog(null, MARKS1 +" "+MARKS2 +" "+MARKS3 +" "+MARKS4);
                 
                 eobj.setAssno(Asssno);
                 eobj.setClono(CLONO);
@@ -1743,7 +1819,39 @@ public class Frame2 extends javax.swing.JFrame {
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
+        cloTable.setRowCount(0);
+
+            cobj=new CLO();
+
+            for(int i =0 ; i<m.CLOList.size(); i++)
+            {
+                Object[] tab = {m.CLOList.get(i).getCourseCode(),m.CLOList.get(i).getCourseTitle(),m.CLOList.get(i).getCLOnumber(),m.CLOList.get(i).getCLODiscription()};
+
+                cloTable.addRow(tab);
+
+            }
     }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+        resultTable.setRowCount(0);
+
+ //String table1[]=new String[]{"Assesment Number","CLO No","Registration Number","Rubric no","Rubric","Component Marks","Obtain Marks"};
+           
+            eobj= new Evaluation();
+            obj=new Student();
+            for(int i =0 ; i<m.evaluationsList.size(); i++)
+            {
+                for(int j=0 ; j<4; j++)
+                {
+                Object[] objs = {m.evaluationsList.get(i).getAssno(),m.evaluationsList.get(i).getClono(),m.evaluationsList.get(i).getRegno(),m.rubricList.get(i).Rubric.get(j).getRubricNumber(),
+                    m.rubricList.get(i).Rubric.get(j).getRubricDiscription(),m.rubricList.get(i).Rubric.get(j).getRubricweightage(),m.evaluationsList.get(i).getLevel1marks()};
+                
+                resultTable.addRow(objs);
+                }
+            }
+        
+    }//GEN-LAST:event_jButton14ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1815,6 +1923,7 @@ public class Frame2 extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1853,6 +1962,8 @@ public class Frame2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
@@ -1870,12 +1981,14 @@ public class Frame2 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField9;
