@@ -6,6 +6,8 @@
 package rubricmanagement;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -60,6 +62,7 @@ public class Frame2 extends javax.swing.JFrame {
         jTextField9 = new javax.swing.JTextField();
         jTextField12 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jComboBox6 = new javax.swing.JComboBox<>();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
@@ -89,11 +92,20 @@ public class Frame2 extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        AssNo = new javax.swing.JComboBox<>();
+        CloNo = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        Rno = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        marks1 = new javax.swing.JComboBox<>();
+        jLabel23 = new javax.swing.JLabel();
+        marks2 = new javax.swing.JComboBox<>();
+        marks3 = new javax.swing.JComboBox<>();
+        marks4 = new javax.swing.JComboBox<>();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
         jPanel15 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -172,6 +184,8 @@ public class Frame2 extends javax.swing.JFrame {
         jTextField12.setText("Level 2 Discription");
 
         jPasswordField1.setText("jPasswordField1");
+
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -404,16 +418,44 @@ public class Frame2 extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel13.setText("Assesment Detail");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Assesment", "1", "2", "3" }));
+        AssNo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Assesment", "1", "2", "3" }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CLO", "1", "2", "3", "4" }));
+        CloNo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CLO", "1", "2", "3", "4" }));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel14.setText("Enter Registration Number");
 
         jLabel15.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel15.setText("Assign Rubric Level");
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel16.setText("Rubric 1");
+
+        marks1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel23.setText("Rubric 2");
+
+        marks2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
+
+        marks3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
+
+        marks4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel24.setText("Rubric 3");
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel25.setText("Rubric 4");
+
+        jButton5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton5.setText("Evaluate");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -426,19 +468,35 @@ public class Frame2 extends javax.swing.JFrame {
                         .addGap(62, 62, 62)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addGap(35, 35, 35)
+                                .addComponent(Rno, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel11Layout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addGap(56, 56, 56)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(AssNo, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(65, 65, 65)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addGap(45, 45, 45)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(CloNo, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGap(267, 267, 267)
-                        .addComponent(jLabel15)))
-                .addContainerGap(227, Short.MAX_VALUE))
+                        .addGap(220, 220, 220)
+                        .addComponent(jLabel15))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel25))
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(marks2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(marks1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(marks3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(marks4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(284, 284, 284)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(237, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -447,15 +505,33 @@ public class Frame2 extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AssNo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CloNo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel14)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                    .addComponent(Rno, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
                 .addComponent(jLabel15)
-                .addContainerGap(384, Short.MAX_VALUE))
+                .addGap(42, 42, 42)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(marks1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(marks2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(marks3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel24))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(marks4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGap(49, 49, 49)
+                .addComponent(jButton5)
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -476,7 +552,7 @@ public class Frame2 extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("EVALUATING STUDENT", jPanel5);
 
-        jPanel15.setBackground(new java.awt.Color(0, 0, 102));
+        jPanel15.setBackground(new java.awt.Color(204, 204, 255));
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -589,6 +665,11 @@ public class Frame2 extends javax.swing.JFrame {
 
         jButton13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton13.setText("View CLOs");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -604,7 +685,7 @@ public class Frame2 extends javax.swing.JFrame {
                         .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(58, 58, 58)
                         .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(67, 67, 67)
                         .addComponent(jButton13))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(124, 124, 124)
@@ -623,7 +704,7 @@ public class Frame2 extends javax.swing.JFrame {
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1545,7 +1626,8 @@ public class Frame2 extends javax.swing.JFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
-        m.showRubrics();
+       // m.showRubrics();
+       m.saveRubrics();
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -1598,6 +1680,71 @@ public class Frame2 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton12ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        Evaluation eobj= new Evaluation();
+        String Asssno= AssNo.getSelectedItem().toString();
+        String CLONO=CloNo.getSelectedItem().toString();
+        String regno=Rno.getText();
+        String lvl1=marks1.getSelectedItem().toString();
+        String lvl2=marks2.getSelectedItem().toString();
+        String lvl3=marks3.getSelectedItem().toString();
+        String lvl4=marks4.getSelectedItem().toString();
+        Double Lvl1=Double.parseDouble(lvl1);
+        Double Lvl2=Double.parseDouble(lvl2);
+        Double Lvl3=Double.parseDouble(lvl3);
+        Double Lvl4=Double.parseDouble(lvl4);
+        double marks1;
+        double marks2;
+        double marks3;
+        double marks4;
+        boolean check=false;
+        for(int i=0 ; i<m.rubricList.size(); i++)
+        {
+            if(Asssno.equals(m.rubricList.get(i).getAssesmentno()) && CLONO.equals(m.rubricList.get(i).getCLO()))
+            {
+                check=true;
+                double componenetMarks1= Integer.parseInt(m.rubricList.get(i).Rubric.get(0).getRubricweightage());
+                double componenetMarks2= Integer.parseInt(m.rubricList.get(i).Rubric.get(1).getRubricweightage());
+                double componenetMarks3= Integer.parseInt(m.rubricList.get(i).Rubric.get(2).getRubricweightage());
+                double componenetMarks4= Integer.parseInt(m.rubricList.get(i).Rubric.get(3).getRubricweightage());
+                
+                marks1=(Lvl1/3)*componenetMarks1;
+                marks2=(Lvl2/3)*componenetMarks2;
+                marks3=(Lvl3/3)*componenetMarks3;
+                marks4=(Lvl4/3)*componenetMarks4;
+                Double MARKS1=  BigDecimal.valueOf(marks1).setScale(1, RoundingMode.HALF_UP).doubleValue();
+                Double MARKS2=  BigDecimal.valueOf(marks2).setScale(1, RoundingMode.HALF_UP).doubleValue();
+                Double MARKS3=  BigDecimal.valueOf(marks3).setScale(1, RoundingMode.HALF_UP).doubleValue();
+                Double MARKS4=  BigDecimal.valueOf(marks4).setScale(1, RoundingMode.HALF_UP).doubleValue();
+                
+                JOptionPane.showMessageDialog(null, MARKS1 +" "+MARKS2 +" "+MARKS3 +" "+MARKS4);
+                
+                eobj.setAssno(Asssno);
+                eobj.setClono(CLONO);
+                eobj.setRegno(regno);
+                eobj.setLevel1marks(MARKS1);
+                eobj.setLevel2marks(MARKS2);
+                eobj.setLevel3marks(MARKS3);
+                eobj.setLevel4marks(MARKS4);
+                
+                
+                m.addEvaluation(eobj);
+                JOptionPane.showMessageDialog(null, "The student with "+regno+" has been evaluated");
+                
+            }  
+        }
+        if(check==false)
+        {
+            JOptionPane.showMessageDialog(null, "The assesment number "+Asssno+" does not exist against CLO no. "+CLONO);
+        }
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1634,6 +1781,9 @@ public class Frame2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> AssNo;
+    private javax.swing.JComboBox<String> CloNo;
+    private javax.swing.JTextField Rno;
     private javax.swing.JComboBox<String> asses;
     private javax.swing.JComboBox<String> ccode;
     private javax.swing.JComboBox<String> clo;
@@ -1668,12 +1818,12 @@ public class Frame2 extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1681,6 +1831,7 @@ public class Frame2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -1688,6 +1839,9 @@ public class Frame2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1724,8 +1878,11 @@ public class Frame2 extends javax.swing.JFrame {
     private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JComboBox<String> marks1;
+    private javax.swing.JComboBox<String> marks2;
+    private javax.swing.JComboBox<String> marks3;
+    private javax.swing.JComboBox<String> marks4;
     private javax.swing.JTextField name;
     private javax.swing.JTextField no;
     private javax.swing.JTextField phone;

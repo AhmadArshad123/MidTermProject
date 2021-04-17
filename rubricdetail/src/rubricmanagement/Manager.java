@@ -6,15 +6,24 @@
 package rubricmanagement;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 
@@ -30,11 +39,14 @@ public class Manager  {
     public List<Student> stdList;
     public List<CLO> CLOList;
     public List<Rubrics> rubricList;
+    public List<Evaluation> evaluationsList;
+
 
      Manager(){
         stdList= new ArrayList<Student>();
         CLOList= new ArrayList<CLO>();
         rubricList= new ArrayList<Rubrics>();
+        evaluationsList= new ArrayList<Evaluation>();
     }
      
      public static Manager getIsntance(){
@@ -79,6 +91,11 @@ public class Manager  {
     {
         rubricList.set(c,r);
     }
+     
+    public void addEvaluation(Evaluation c)
+    {
+        evaluationsList.add(c);
+    }
     
      
     public boolean saveStudents() throws IOException
@@ -117,7 +134,58 @@ public class Manager  {
  
     }
     
+    public void saveRubrics()
+    {
+        //Blank workbook
+        XSSFWorkbook workbook = new XSSFWorkbook(); 
+         
+        //Create a blank sheet
+        org.apache.poi.xssf.usermodel.XSSFSheet sheet = workbook.createSheet("Employee Data");
+        Map<String, Object[]> data = new TreeMap<String, Object[]>();
+        data.put("1", new Object[] {"Rubric Number","Assesment NO","CLO No", "Rubric Discription", "Component Marks","Level 1","Level 2","Level 3"});
+        int row1=2;
+        for(int i=0 ; i<rubricList.size(); i++)
+        {
+            for(int j = 0; j<4 ; j++)
+            {
+                 data.put("row1", new Object[] {rubricList.get(i).getAssesmentno(),rubricList.get(i).getCLO(), rubricList.get(i).Rubric.get(j).getRubricDiscription(), rubricList.get(i).Rubric.get(j).getRubricweightage(),rubricList.get(i).Rubric.get(j).getRubric1Discription(),rubricList.get(i).Rubric.get(j).getRubric2Discription(),rubricList.get(i).Rubric.get(j).getRubric3Discription()});
+                 row1++;
+            }
+        }
+        
+        Set<String> keyset = data.keySet();
+        int rownum = 0;
+        for (String key : keyset)
+        {
+            Row row = sheet.createRow(rownum++);
+            Object [] objArr = data.get(key);
+            int cellnum = 0;
+            for (Object obj : objArr)
+            {
+               Cell cell = row.createCell(cellnum++);
+               if(obj instanceof String)
+                    cell.setCellValue((String)obj);
+                else if(obj instanceof Integer)
+                    cell.setCellValue((Integer)obj);
+            }
+        }
+        
+        try
+        {
+            //Write the workbook in file system
+            FileOutputStream out = new FileOutputStream(new File("howtodoinjava_demo.xlsx"));
+            workbook.write(out);
+            out.close();
+            System.out.println("howtodoinjava_demo.xlsx written successfully on disk.");
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+    
     public void loadStudent() 
+            
     {
         try{
         FileReader fr=new FileReader("Students.txt");
