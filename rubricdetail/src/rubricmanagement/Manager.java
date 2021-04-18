@@ -150,6 +150,7 @@ public class Manager  {
             {
                  data.put("row1", new Object[] {rubricList.get(i).Rubric.get(j).getRubricNumber(),rubricList.get(i).getAssesmentno(),rubricList.get(i).getCLO(), rubricList.get(i).Rubric.get(j).getRubricDiscription(), rubricList.get(i).Rubric.get(j).getRubricweightage(),rubricList.get(i).Rubric.get(j).getRubric1Discription(),rubricList.get(i).Rubric.get(j).getRubric2Discription(),rubricList.get(i).Rubric.get(j).getRubric3Discription()});
                  row1++;
+                 System.out.println(row1);
             }
         }
         
@@ -250,7 +251,28 @@ public class Manager  {
         }
         }
     
-    
+        
+        public boolean saveRubricfile() throws IOException
+    {
+        try (FileWriter fw = new FileWriter("Rubrics.txt",false);){
+            
+            for(int i=0 ; i<rubricList.size(); i++)
+        {
+            fw.write(rubricList.get(i).getAssesmentno()+","+rubricList.get(i).getCLO()+",");
+            for(int j = 0; j<4 ; j++)
+            {
+                 fw.write(rubricList.get(i).Rubric.get(j).getRubricNumber()+","+ rubricList.get(i).Rubric.get(j).getRubricDiscription()+","+ rubricList.get(i).Rubric.get(j).getRubricweightage()+","+rubricList.get(i).Rubric.get(j).getRubric1Discription()+","+rubricList.get(i).Rubric.get(j).getRubric2Discription()+","+rubricList.get(i).Rubric.get(j).getRubric3Discription()+",");   
+            }
+            fw.write("\n");
+        }
+         fw.flush();
+         fw.close();
+         return true;
+          
+        } catch (Exception e) {
+            return false;
+        }
+    }
      
      
      
@@ -273,32 +295,11 @@ public class Manager  {
          
       }
     
-    public void showCLO(){
-     
-        
-        
-        
-          for(int i = 0 ; i< CLOList.size() ; i++ )
-          {
-            JOptionPane.showMessageDialog(null,  CLOList.get(i).getCLOnumber()+ CLOList.get(i).getCLODiscription()) ; 
-          }
+    
           
           
           
-    }
-    public void showStudent(){
-     
-        
-        
-        
-          for(int i = 0 ; i< stdList.size() ; i++ )
-          {
-            JOptionPane.showMessageDialog(null,  stdList.get(i).getStudentName()); 
-          }
-          
-          
-          
-    }
+    
     
    
     

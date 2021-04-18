@@ -1,1 +1,2 @@
 Programming Fundamental,CS142L,1,My name is CLO1
+Programming Fundamental,CS142L,2,My name is CLO2
